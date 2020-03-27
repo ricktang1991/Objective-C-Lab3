@@ -12,7 +12,7 @@
 
 @property int rightCount;
 @property int wrongCount;
-+ (NSString *) getScoreWithRightCount:(int) rightCount WrongCount:(int) wrongCount;
+- (NSString *) getScoreWithRightCount:(int) rightCount WrongCount:(int) wrongCount;
 
 @end
 

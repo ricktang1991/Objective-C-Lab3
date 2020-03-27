@@ -1,14 +1,14 @@
 //
-//  AdditionQuestion.m
+//  SubtractionQuestion.m
 //  Lab3
 //
 //  Created by 桑染 on 2020-03-26.
 //  Copyright © 2020 Rick. All rights reserved.
 //
 
-#import "AdditionQuestion.h"
+#import "SubtractionQuestion.h"
 
-@implementation AdditionQuestion
+@implementation SubtractionQuestion
 
 - (instancetype)init
 {
@@ -22,8 +22,8 @@
 - (void)generateQuestion {
     NSInteger num1 = [super leftValue];
     NSInteger num2 = [super rightValue];
-    super.question = [NSString stringWithFormat:@"%ld + %ld ?", (long)num1, (long)num2];
-    super.answer = num1 + num2;
+    super.question = [NSString stringWithFormat:@"%ld - %ld ?", (long)num1, (long)num2];
+    super.answer = num1 - num2;
 }
 
 @end

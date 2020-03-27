@@ -10,7 +10,7 @@
 
 @interface InputHandler : NSObject
 
-+ (NSString *) getUserInputWithMaxLength:(int) maxLength withPrompt:(NSString *) prompt;
+- (NSString *) getUserInputWithMaxLength:(int) maxLength withPrompt:(NSString *) prompt;
 
 @end
 

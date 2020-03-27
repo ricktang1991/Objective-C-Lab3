@@ -1,5 +1,5 @@
 //
-//  AdditionQuestion.h
+//  SubtractionQuestion.h
 //  Lab3
 //
 //  Created by 桑染 on 2020-03-26.
@@ -8,8 +8,7 @@
 
 #import "Question.h"
 
-
-@interface AdditionQuestion : Question
+@interface SubtractionQuestion : Question
 
 - (instancetype)init;
 - (void)generateQuestion;

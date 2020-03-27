@@ -10,7 +10,7 @@
 
 @implementation InputHandler
 
-+ (NSString *) getUserInputWithMaxLength:(int) maxLength withPrompt:(NSString *) prompt {
+- (NSString *) getUserInputWithMaxLength:(int) maxLength withPrompt:(NSString *) prompt {
     if (maxLength < 1) {
         maxLength = 255;
     }

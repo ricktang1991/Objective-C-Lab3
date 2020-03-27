@@ -10,28 +10,41 @@
 #import "AdditionQuestion.h"
 #import "InputHandler.h"
 #import "ScoreKeeper.h"
+#import "QuestionManager.h"
+#import "QuestionFactory.h"
+#import "Question.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         int rightCount = 0;
         int wrongCount = 0;
         BOOL gameOn = YES;
+        QuestionManager *questionManager = [QuestionManager new];
+        ScoreKeeper *scorKeeper = [ScoreKeeper new];
+        InputHandler *inputHandler = [InputHandler new];
+        QuestionFactory *questionFactory = [QuestionFactory new];
+        
         while (gameOn) {
-            AdditionQuestion *a = [AdditionQuestion new];
-            NSString *strInput = [InputHandler getUserInputWithMaxLength:255 withPrompt:[a question]];
+            Question *question1 = [questionFactory generateRandomQuestion];
+            [question1 generateQuestion];
+            [[questionManager questions] addObject:question1];
+            NSString *strInput = [inputHandler getUserInputWithMaxLength:255 withPrompt:[question1 question]];
             if ([strInput isEqualToString:@"quit\n"]) {
                 gameOn = NO;
             }
-            else if ([strInput intValue] == [a answer]) {
+            else if ([strInput integerValue] == [question1 answer]) {
                 NSLog(@"Right!");
                 rightCount += 1;
-                NSLog(@"%@", [ScoreKeeper getScoreWithRightCount:rightCount WrongCount:wrongCount]);
+                NSLog(@"%@", [scorKeeper getScoreWithRightCount:rightCount WrongCount:wrongCount]);
+                NSLog(@"%@s", [questionManager timeOutput]);
             }
-            else if ([strInput intValue] != [a answer]) {
+            else if ([strInput integerValue] != [question1 answer]) {
                 NSLog(@"Wrong!");
                 wrongCount += 1;
-                NSLog(@"%@", [ScoreKeeper getScoreWithRightCount:rightCount WrongCount:wrongCount]);
+                NSLog(@"%@", [scorKeeper getScoreWithRightCount:rightCount WrongCount:wrongCount]);
+                NSLog(@"%@s", [questionManager timeOutput]);
             }
         }
     }
+    return 0;
 }

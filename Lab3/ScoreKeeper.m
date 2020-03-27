@@ -10,7 +10,7 @@
 
 @implementation ScoreKeeper
 
-+ (NSString *) getScoreWithRightCount:(int) rightCount WrongCount:(int) wrongCount {
+- (NSString *) getScoreWithRightCount:(int) rightCount WrongCount:(int) wrongCount {
     int percentage = rightCount * 100 / (rightCount + wrongCount);
     NSString *result = [NSString stringWithFormat:@"score: %d right, %d wrong ---- %d%%", rightCount, wrongCount, percentage];
     return result;
